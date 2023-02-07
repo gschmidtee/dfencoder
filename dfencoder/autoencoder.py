@@ -261,6 +261,9 @@ class AutoEncoder(torch.nn.Module):
         dt = df.dtypes
         numeric = []
         numeric += list(dt[dt==int].index)
+        numeric += list(dt[dt==np.int8].index)
+        numeric += list(dt[dt==np.int16].index)
+        numeric += list(dt[dt==np.int32].index)
         numeric += list(dt[dt==float].index)
 
         if isinstance(self.scaler, str):
